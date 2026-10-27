@@ -48,4 +48,4 @@ if alerta:
 elif alerta2:
     st.error("⚠️ **ALERTA POR LLUVIA ACTIVADA:** Existe riesgo por inundaciones.")
 elif alerta == 0 and alerta2 == 0:
-    st.success("✅ **Alerta por calor:** No activa.")
+    st.success("✅ **Alerta por clima:** No activa.")
