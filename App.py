@@ -6,8 +6,9 @@ st.sidebar.header("Parámetros de Medición")
 
 temp_input = st.sidebar.number_input("Temperatura (°C)", value=31, step=1)
 hum_input = st.sidebar.number_input("Humedad (%)", value=68, min_value=0, max_value=100, step=1)
-llueve_input = st.sidebar.checkbox("¿Está lloviendo?", value=False)
 viento_input = st.sidebar.number_input("Velocidad del viento (km/h)", value=10, step=1)
+llueve_input = st.sidebar.checkbox("¿Está lloviendo?", value=False)
+
 # Guardar en la lista solicitada
 medicion = [temp_input, hum_input, llueve_input, viento_input]
 
