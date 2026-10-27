@@ -32,7 +32,7 @@ else:
     else:
         clasificacion = "Frío"
 
-    #st.subheader(f"Estado: {clasificacion}")
+    st.subheader(f"Estado: {clasificacion}")
 
     # Mostramos las métricas
     col1, col2, col3, col4 = st.columns(4)
