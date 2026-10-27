@@ -40,3 +40,10 @@ with col3:
 
 with col4:
     st.metric(label="Lluvia", value=f"{llueve} mm", icon="🌧️")
+
+alerta = temperatura >= 35 and humedad >= 70
+if alerta:
+    st.error("⚠️ **ALERTA POR CALOR ACTIVADA:** Existe riesgo por altas temperaturas y humedad.")
+else:
+    st.success("✅ **Alerta por calor:** No activa.")
+
