@@ -9,43 +9,53 @@ hum_input = st.sidebar.number_input("Humedad (%)", value=68, min_value=0, max_va
 viento_input = st.sidebar.number_input("Velocidad del viento (km/h)", value=10, step=1)
 llueve_input = st.sidebar.number_input("Lluvia (mm)", value=0, min_value=0, step=1)
 
-medicion = [temp_input, hum_input, llueve_input, viento_input]
+# Validación de reglas lógicas
+es_invalido = (llueve_input > 0 and temp_input >= 30)
 
-# 2. Extraer valores desde la lista
-temperatura, humedad, llueve, viento = medicion
-
-# 3. Clasificación de condiciones
-if temperatura >= 30 and humedad >= 70:
-    clasificacion = "Calor húmedo"
-elif temperatura >= 30 and humedad < 70:
-    clasificacion = "Calor seco"
-elif 15 <= temperatura < 30 and llueve > 0:
-    clasificacion = "Templado lluvioso"
-elif 15 <= temperatura < 30 and llueve == 0:
-    clasificacion = "Templado"
+if es_invalido:
+    st.warning("⚠️ **Combinación no permitida:** No se permite ingresar lluvia mayor a 0 mm si la temperatura es mayor o igual a 30°C.")
 else:
-    clasificacion = "Frío"
+    medicion = [temp_input, hum_input, llueve_input, viento_input]
 
-# Mostramos las métricas
-col1, col2, col3, col4 = st.columns(4)
+    # 2. Extraer valores desde la lista
+    temperatura, humedad, llueve, viento = medicion
 
-with col1:
-    st.metric(label="Temperatura", value=f"{temperatura} °C", icon="🌡️")
+    # 3. Clasificación de condiciones
+    if temperatura >= 30 and humedad >= 70:
+        clasificacion = "Calor húmedo"
+    elif temperatura >= 30 and humedad < 70:
+        clasificacion = "Calor seco"
+    elif 15 <= temperatura < 30 and llueve > 0:
+        clasificacion = "Templado lluvioso"
+    elif 15 <= temperatura < 30 and llueve == 0:
+        clasificacion = "Templado"
+    else:
+        clasificacion = "Frío"
 
-with col2:
-    st.metric(label="Humedad", value=f"{humedad}%", icon="💧")
+    st.subheader(f"Estado: {clasificacion}")
 
-with col3:
-    st.metric(label="Viento", value=f"{viento} km/h", icon="💨")
+    # Mostramos las métricas
+    col1, col2, col3, col4 = st.columns(4)
 
-with col4:
-    st.metric(label="Lluvia", value=f"{llueve} mm", icon="🌧️")
+    with col1:
+        st.metric(label="Temperatura", value=f"{temperatura} °C", icon="🌡️")
 
-alerta = temperatura >= 35 and humedad >= 70
-alerta2 = llueve >= 10 and humedad >= 70
-if alerta:
-    st.error("⚠️ **ALERTA POR CALOR ACTIVADA:** Existe riesgo por altas temperaturas y humedad.")
-elif alerta2:
-    st.error("⚠️ **ALERTA POR LLUVIA ACTIVADA:** Existe riesgo por inundaciones.")
-elif alerta == 0 and alerta2 == 0:
-    st.success("✅ **Alerta por clima:** No activa.")
+    with col2:
+        st.metric(label="Humedad", value=f"{humedad}%", icon="💧")
+
+    with col3:
+        st.metric(label="Viento", value=f"{viento} km/h", icon="💨")
+
+    with col4:
+        st.metric(label="Lluvia", value=f"{llueve} mm", icon="🌧️")
+
+    # Alertas
+    alerta = temperatura >= 35 and humedad >= 70
+    alerta2 = llueve >= 10 and humedad >= 70
+    
+    if alerta:
+        st.error("⚠️ **ALERTA POR CALOR ACTIVADA:** Existe riesgo por altas temperaturas y humedad.")
+    elif alerta2:
+        st.error("⚠️ **ALERTA POR LLUVIA ACTIVADA:** Existe riesgo por inundaciones.")
+    else:
+        st.success("✅ **Alerta por clima:** No activa.")
