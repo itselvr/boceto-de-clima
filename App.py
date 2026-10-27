@@ -15,16 +15,17 @@ medicion = [temp_input, hum_input, llueve_input, viento_input]
 temperatura, humedad, llueve, viento = medicion
 
 # 3. Clasificación de condiciones
+
 if temperatura >= 30 and humedad >= 70:
-    clasificacion = "Calor húmedo"
+    clasificacion = "Calor húmedo"
 elif temperatura >= 30 and humedad < 70:
-    clasificacion = "Calor seco"
+    clasificacion = "Calor seco"
 elif 15 <= temperatura < 30 and llueve:
-    clasificacion = "Templado lluvioso"
+    clasificacion = "Templado lluvioso"
 elif 15 <= temperatura < 30 and not llueve:
-    clasificacion = "Templado"
+    clasificacion = "Templado"
 else:
-    clasificacion = "Frío"
+    clasificacion = "Frío"
 
 # Mostramos las métricas
 col1, col2, col3, col4 = st.columns(4)
