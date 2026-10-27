@@ -1,30 +1,35 @@
 import streamlit as st
-import requests
 
 st.title("Clima en Chihuahua (Tiempo Real)")
 
-# Consulta la API gratuita de Open-Meteo cada 10 minutos (600 segundos)
-@st.cache_data(ttl=600)
-def obtener_clima():
-    # Coordenadas de Chihuahua: Lat 28.6353, Lon -106.0889
-    url = "https://api.open-meteo.com/v1/forecast?latitude=28.6353&longitude=-106.0889&current=temperature_2m,relative_humidity_2m,wind_speed_10m,precipitation"
-    response = requests.get(url)
-    return response.json()["current"]
+st.sidebar.header("Parámetros de Medición")
 
-# Obtenemos los datos actualizados
-clima = obtener_clima()
+temp_input = st.sidebar.number_input("Temperatura (°C)", value=31, step=1)
+hum_input = st.sidebar.number_input("Humedad (%)", value=68, min_value=0, max_value=100, step=1)
+llueve_input = st.sidebar.checkbox("¿Está lloviendo?", value=False)
+# Guardar en la lista solicitada
+medicion = [temp_input, hum_input, llueve_input]
 
-# Extraemos los valores
-temp = clima["temperature_2m"]
-humedad = clima["relative_humidity_2m"]
-viento = clima["wind_speed_10m"]
-lluvia = clima["precipitation"]
+# 2. Extraer valores desde la lista
+temperatura, humedad, llueve, viento = medicion
+
+# 3. Clasificación de condiciones
+if temperatura >= 30 and humedad >= 70:
+    clasificacion = "Calor húmedo"
+elif temperatura >= 30 and humedad < 70:
+    clasificacion = "Calor seco"
+elif 15 <= temperatura < 30 and llueve:
+    clasificacion = "Templado lluvioso"
+elif 15 <= temperatura < 30 and not llueve:
+    clasificacion = "Templado"
+else:
+    clasificacion = "Frío"
 
 # Mostramos las métricas
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-    st.metric(label="Temperatura", value=f"{temp} °C", icon="🌡️")
+    st.metric(label="Temperatura", value=f"{temperatura} °C", icon="🌡️")
 
 with col2:
     st.metric(label="Humedad", value=f"{humedad}%", icon="💧")
@@ -33,4 +38,4 @@ with col3:
     st.metric(label="Viento", value=f"{viento} km/h", icon="💨")
 
 with col4:
-    st.metric(label="Lluvia", value=f"{lluvia} mm", icon="🌧️")
+    st.metric(label="Lluvia", value=f"{llueve} mm", icon="🌧️")
