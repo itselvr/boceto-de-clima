@@ -49,5 +49,3 @@ elif alerta:
     st.success("✅ **Alerta por calor:** No activa.")
 elif alerta2:
     st.error("⚠️ **ALERTA POR LLUVIA ACTIVADA:** Existe riesgo por inundaciones.")
-elif alerta2:
-    st.success("✅ **Alerta por lluvia:** No activa.")
