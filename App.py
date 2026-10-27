@@ -45,7 +45,7 @@ alerta = temperatura >= 35 and humedad >= 70
 alerta2 = llueve >= 10
 if alerta:
     st.error("⚠️ **ALERTA POR CALOR ACTIVADA:** Existe riesgo por altas temperaturas y humedad.")
-elif:
+elif alerta = o:
     st.success("✅ **Alerta por calor:** No activa.")
 elif alerta2:
     st.error("⚠️ **ALERTA POR LLUVIA ACTIVADA:** Existe riesgo por inundaciones.")
