@@ -68,6 +68,7 @@ if datos_clima:
     else:
         clasificacion = "Frío"
 
+    clasificacion = "Frío"
     estilo_actual = ESTILOS_CLIMA.get(
             clasificacion, 
             {"fondo": "#ffffff", "texto": "#000000", "sidebar_fondo": "#f0f2f6"}
