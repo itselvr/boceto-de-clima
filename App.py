@@ -66,9 +66,9 @@ if datos_clima:
     elif 15 <= temperatura < 30 and llueve == 0:
         clasificacion = "Templado"
     else:
-        clasificacion = "Calor húmedo"
+        clasificacion = "Frío"
 
-    clasificacion = "Frío"
+    clasificacion = "Calor húmedo"
     estilo_actual = ESTILOS_CLIMA.get(
             clasificacion, 
             {"fondo": "#ffffff", "texto": "#000000", "sidebar_fondo": "#f0f2f6"}
