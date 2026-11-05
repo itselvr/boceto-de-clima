@@ -37,7 +37,7 @@ IMAGENES_OUTFIT = {
     "Calor húmedo": "",
     "Calor seco": "",
     "Templado lluvioso": "",
-    "Templado": "",
+    "Templado": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlYhE_o_INvyVu7Jn9F0gcqg3HnjkG7AXHMo1mFpwbmw&s=10",
     "Frío": "",
 }
 
