@@ -4,8 +4,6 @@ import requests
 st.set_page_config(page_title="Clima en Chihuahua", page_icon="🌤️")
 st.title("Clima Actual Chihuahua")
 
-st.sidebar.header("RECOMENDACIÓN DE OUTFIT ")
-
 LATITUD = 28.6353
 LONGITUD = -106.0889
 
@@ -39,6 +37,31 @@ if datos_clima:
         clasificacion = "Templado"
     else:
         clasificacion = "Frío"
+
+    st.sidebar.header("👕 RECOMENDACIÓN DE OUTFIT")
+    
+    if clasificacion == "Calor húmedo":
+        outfit = "Ropa muy ligera y de tela transpirable (lino o algodón fino). Evita ropa ajustada."
+        accesorios = "🕶️ Lentes de sol, protector solar y gorra o sombrero."
+    elif clasificacion == "Calor seco":
+        outfit = "Ropa fresca, manga corta o sin mangas, colores claros."
+        accesorios = "🕶️ Lentes de sol, sombrero y abundante agua/bloqueador."
+    elif clasificacion == "Templado lluvioso":
+        outfit = "Impermeable o chaqueta resistente al agua, pantalones ligeros y calzado cerrado antiderrapante."
+        accesorios = "☂️ Paraguas imprescindible y calzado impermeable."
+    elif clasificacion == "Templado":
+        outfit = "Camiseta cómoda con una chamarra ligera o suéter delgado fácil de quitar."
+        accesorios = "👟 Calzado cómodo de diario."
+    else:  # Frío
+        outfit = "Vestimenta en capas: chamarra/abrigo grueso, suéter cálido y pantalones térmicos o gruesos."
+        accesorios = "🧣 Bufanda, gorro y guantes si sales temprano o de noche."
+
+    if llueve > 0 and clasificacion != "Templado lluvioso":
+        accesorios += "\n\n🌧️ *Lleva un paraguas o impermeable por la lluvia registrada.*"
+
+    st.sidebar.subheader(f"Para hoy ({clasificacion}):")
+    st.sidebar.info(f"**Vestimenta:**\n{outfit}")
+    st.sidebar.warning(f"**Accesorios sugeridos:**\n{accesorios}")
 
     st.subheader(f"Estado: {clasificacion}")
 
