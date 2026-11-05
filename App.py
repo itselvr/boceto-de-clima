@@ -150,7 +150,8 @@ if datos_clima:
     st.subheader("📸 Outfit Recomendado")
 
     img_url = IMAGENES_OUTFIT.get(clasificacion)
-    
+    if img_url:
+        st.image(img_url, caption=f"Estilo sugerido para {clasificacion}", width=350)
     st.image(img_url, caption=f"Estilo sugerido para {clasificacion}", use_container_width=True)
     
 else:
