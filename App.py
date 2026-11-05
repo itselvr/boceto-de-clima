@@ -34,10 +34,10 @@ ESTILOS_CLIMA = {
     },
 }
 IMAGENES_OUTFIT = {
-    "Calor húmedo": "",
-    "Calor seco": "",
-    "Templado lluvioso": "",
-    "Templado": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlYhE_o_INvyVu7Jn9F0gcqg3HnjkG7AXHMo1mFpwbmw&s=10",
+    "Calor húmedo": "https://i.pinimg.com/736x/0d/01/02/0d0102d9671cc22e24529fb9b4d7395c.jpg",
+    "Calor seco": "https://i.pinimg.com/736x/d8/24/f1/d824f19775acdc8d3884bae0535d4fba.jpg",
+    "Templado lluvioso": "https://i.pinimg.com/1200x/97/df/11/97df1115e3f69a71d30a258ffe68822c.jpg",
+    "Templado": "https://i.pinimg.com/1200x/44/8f/7c/448f7cecdffbc871c23e4cdc45369296.jpg",
     "Frío": "https://i.pinimg.com/1200x/24/4a/cb/244acb6a79e2b7f35f2d1f8ff01dd582.jpg",
 }
 
@@ -68,7 +68,7 @@ if datos_clima:
     else:
         clasificacion = "Frío"
 
-    clasificacion = "Frío"
+    #clasificacion = "Frío"
     estilo_actual = ESTILOS_CLIMA.get(
             clasificacion, 
             {"fondo": "#ffffff", "texto": "#000000", "sidebar_fondo": "#f0f2f6"}
