@@ -91,14 +91,17 @@ IMAGENES_OUTFIT = {
     "Frío": "https://img.ltwebstatic.com/images3_pi/2021/10/20/163471018593d18c11f7c8f2f28a383d47f921d7b1_thumbnail_600x.webp", # Ejemplo: Abrigo
 }
 st.divider()
+    st.subheader("📸 Outfit Recomendado")
     
-    st.subheader("📸 Visualización y Selección de Imagen")
+    img_url = IMAGENES_OUTFIT.get(clasificacion, "https://via.placeholder.com/600x400.png?text=Outfit")
     
-    img_url = IMAGENES_OUTFIT.get(clasificacion, "https://via.placeholder.com/600x400.png?text=Outfit+para+Clima")
+    st.image(img_url, caption=f"Estilo sugerido para {clasificacion}", use_container_width=True)
+
+    st.markdown("### 🔗 Busca imágenes para reemplazar las URLs:")
+    query_busqueda = clasificacion.replace(' ', '+')
     
-    st.image(img_url, caption=f"Outfit para {clasificacion}", use_column_width=True)
-    
-    st.markdown("""
-    Aquí tienes una vista previa del estilo de outfit recomendado para hoy (**{0}**).
-    Haz clic en los enlaces para buscar y seleccionar la foto que más te guste para usar en tu aplicación y personalizar la vista:
-    """.format(clasificacion))
+    st.markdown(f"- [🔎 Buscar outfits para **{clasificacion}** en Google](https://www.google.com/search?tbm=isch&q=outfit+{query_busqueda}+moda)")
+    st.markdown(f"- [📌 Buscar outfits para **{clasificacion}** en Pinterest](https://www.pinterest.com/search/pins/?q=outfit+{query_busqueda})")
+
+else:
+    st.error("No se pudieron obtener los datos meteorológicos en este momento.")
