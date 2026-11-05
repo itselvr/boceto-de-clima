@@ -83,14 +83,14 @@ if datos_clima:
 else:
     st.error("No se pudieron obtener los datos meteorológicos en este momento.")
 
-IMAGENES_OUTFIT = {
-    "Calor húmedo": "https://img.ltwebstatic.com/images3_pi/2021/04/16/161854898236b285b0d00f68482458e08d648b26_thumbnail_600x.webp", # Ejemplo: Vestido lino
-    "Calor seco": "https://img.ltwebstatic.com/images3_pi/2022/03/17/164748135847e3881477464a938837e40e2d5392d4_thumbnail_600x.webp", # Ejemplo: Shorts
-    "Templado lluvioso": "https://img.ltwebstatic.com/images3_pi/2021/01/26/16116238318b76c66601f0548175b9f7a7d42e26b1_thumbnail_600x.webp", # Ejemplo: Impermeable
-    "Templado": "https://img.ltwebstatic.com/images3_pi/2021/10/22/1634891157b8b42023d6a2a0242a98e3b2e3e5b158_thumbnail_600x.webp", # Ejemplo: Suéter ligero
-    "Frío": "https://img.ltwebstatic.com/images3_pi/2021/10/20/163471018593d18c11f7c8f2f28a383d47f921d7b1_thumbnail_600x.webp", # Ejemplo: Abrigo
-}
-st.divider()
+    IMAGENES_OUTFIT = {
+        "Calor húmedo": "https://img.ltwebstatic.com/images3_pi/2021/04/16/161854898236b285b0d00f68482458e08d648b26_thumbnail_600x.webp", # Ejemplo: Vestido lino
+        "Calor seco": "https://img.ltwebstatic.com/images3_pi/2022/03/17/164748135847e3881477464a938837e40e2d5392d4_thumbnail_600x.webp", # Ejemplo: Shorts
+        "Templado lluvioso": "https://img.ltwebstatic.com/images3_pi/2021/01/26/16116238318b76c66601f0548175b9f7a7d42e26b1_thumbnail_600x.webp", # Ejemplo: Impermeable
+        "Templado": "https://img.ltwebstatic.com/images3_pi/2021/10/22/1634891157b8b42023d6a2a0242a98e3b2e3e5b158_thumbnail_600x.webp", # Ejemplo: Suéter ligero
+        "Frío": "https://img.ltwebstatic.com/images3_pi/2021/10/20/163471018593d18c11f7c8f2f28a383d47f921d7b1_thumbnail_600x.webp", # Ejemplo: Abrigo
+    }
+    st.divider()
     st.subheader("📸 Outfit Recomendado")
     
     img_url = IMAGENES_OUTFIT.get(clasificacion, "https://via.placeholder.com/600x400.png?text=Outfit")
