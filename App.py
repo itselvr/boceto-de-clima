@@ -34,11 +34,11 @@ ESTILOS_CLIMA = {
     },
 }
 IMAGENES_OUTFIT = {
-    "Calor húmedo": "https://www.google.com/imgres?q=ropa%20para%20calor%20seco&imgurl=https%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D122108196105306221&imgrefurl=https%3A%2F%2Fwww.facebook.com%2Fsecretariadeeducacionyculturacolima%2Fposts%2Fen-temporada-de-calor-tu-ropa-puede-ayudarte-a-mantenerte-fresco-y-seguro-opta-p%2F1106005021570513%2F&docid=40efj4b8Q2a4UM&tbnid=Ljui_sizAAdFcM&vet=12ahUKEwjy0sKj4O-XAxVJlGoFHThJIokQnPAOegUI9AEQAA..i&w=1122&h=1402&hcb=2&ved=2ahUKEwjy0sKj4O-XAxVJlGoFHThJIokQnPAOegUI9AEQAA",
-    "Calor seco": "hhttps://www.google.com/imgres?q=ropa%20para%20calor%20seco&imgurl=https%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D122108196105306221&imgrefurl=https%3A%2F%2Fwww.facebook.com%2Fsecretariadeeducacionyculturacolima%2Fposts%2Fen-temporada-de-calor-tu-ropa-puede-ayudarte-a-mantenerte-fresco-y-seguro-opta-p%2F1106005021570513%2F&docid=40efj4b8Q2a4UM&tbnid=Ljui_sizAAdFcM&vet=12ahUKEwjy0sKj4O-XAxVJlGoFHThJIokQnPAOegUI9AEQAA..i&w=1122&h=1402&hcb=2&ved=2ahUKEwjy0sKj4O-XAxVJlGoFHThJIokQnPAOegUI9AEQAA",
-    "Templado lluvioso": "https://img.ltwebstatic.com/images3_pi/2021/01/26/16116238318b76c66601f0548175b9f7a7d42e26b1_thumbnail_600x.webp",
-    "Templado": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnWPzBVuUOVtq0ZJy01il75OXsiUa-orEikSxPl61k7Srs__jFqmHltumy&s=10",
-    "Frío": "https://img.ltwebstatic.com/images3_pi/2021/10/20/163471018593d18c11f7c8f2f28a383d47f921d7b1_thumbnail_600x.webp",
+    "Calor húmedo": "",
+    "Calor seco": "",
+    "Templado lluvioso": "",
+    "Templado": "",
+    "Frío": "",
 }
 
 @st.cache_data(ttl=600)  
