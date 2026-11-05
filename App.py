@@ -7,11 +7,31 @@ st.title("Clima Actual Chihuahua")
 LATITUD = 28.6353
 LONGITUD = -106.0889
 ESTILOS_CLIMA = {
-    "Calor húmedo": {"fondo": "#ffe6cc", "texto": "#1a1a1a"},      # Claro
-    "Calor seco": {"fondo": "#fff2cc", "texto": "#1a1a1a"},        # Claro
-    "Templado lluvioso": {"fondo": "#2c3e50", "texto": "#ffffff"}, # Oscuro -> Letra blanca
-    "Templado": {"fondo": "#e1eeec", "texto": "#1a1a1a"},          # Claro
-    "Frío": {"fondo": "#1c2833", "texto": "#ffffff"},              # Oscuro -> Letra blanca
+    "Calor húmedo": {
+        "fondo": "#ffe6cc", 
+        "texto": "#1a1a1a", 
+        "sidebar_fondo": "#ffd1a4"
+    },
+    "Calor seco": {
+        "fondo": "#fff2cc", 
+        "texto": "#1a1a1a", 
+        "sidebar_fondo": "#ffe599"
+    },
+    "Templado lluvioso": {
+        "fondo": "#2c3e50", 
+        "texto": "#ffffff", 
+        "sidebar_fondo": "#1a252f"
+    },
+    "Templado": {
+        "fondo": "#e1eeec", 
+        "texto": "#1a1a1a", 
+        "sidebar_fondo": "#c2e0dc"
+    },
+    "Frío": {
+        "fondo": "#1c2833", 
+        "texto": "#ffffff", 
+        "sidebar_fondo": "#111b24"
+    },
 }
 IMAGENES_OUTFIT = {
     "Calor húmedo": "https://www.google.com/imgres?q=ropa%20para%20calor%20seco&imgurl=https%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D122108196105306221&imgrefurl=https%3A%2F%2Fwww.facebook.com%2Fsecretariadeeducacionyculturacolima%2Fposts%2Fen-temporada-de-calor-tu-ropa-puede-ayudarte-a-mantenerte-fresco-y-seguro-opta-p%2F1106005021570513%2F&docid=40efj4b8Q2a4UM&tbnid=Ljui_sizAAdFcM&vet=12ahUKEwjy0sKj4O-XAxVJlGoFHThJIokQnPAOegUI9AEQAA..i&w=1122&h=1402&hcb=2&ved=2ahUKEwjy0sKj4O-XAxVJlGoFHThJIokQnPAOegUI9AEQAA",
@@ -48,16 +68,29 @@ if datos_clima:
     else:
         clasificacion = "Frío"
 
-    estilo_actual = ESTILOS_CLIMA.get(clasificacion, {"fondo": "#ffffff", "texto": "#000000"})
-
+    estilo_actual = ESTILOS_CLIMA.get(
+            clasificacion, 
+            {"fondo": "#ffffff", "texto": "#000000", "sidebar_fondo": "#f0f2f6"}
+        )
     st.markdown(
         f"""
         <style>
+        /* 1. Fondo principal y color de texto */
         .stApp {{
             background-color: {estilo_actual["fondo"]};
             color: {estilo_actual["texto"]};
         }}
         .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6, .stApp p, .stApp span {{
+            color: {estilo_actual["texto"]} !important;
+        }}
+
+        /* 2. Fondo de la barra lateral (Sidebar) */
+        [data-testid="stSidebar"] {{
+            background-color: {estilo_actual["sidebar_fondo"]} !important;
+        }}
+        [data-testid="stSidebar"] h1, [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3, 
+        [data-testid="stSidebar"] h4, [data-testid="stSidebar"] h5, [data-testid="stSidebar"] h6, 
+        [data-testid="stSidebar"] p, [data-testid="stSidebar"] span {{
             color: {estilo_actual["texto"]} !important;
         }}
         </style>
