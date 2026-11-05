@@ -151,8 +151,6 @@ if datos_clima:
 
     img_url = IMAGENES_OUTFIT.get(clasificacion)
     if img_url:
-        st.image(img_url, caption=f"Estilo sugerido para {clasificacion}", width=350)
-    #st.image(img_url, caption=f"Estilo sugerido para {clasificacion}", use_container_width=True)
-    
+        st.image(img_url, caption=f"Estilo sugerido para {clasificacion}", width=350 ali)    
 else:
     st.error("No se pudieron obtener los datos meteorológicos en este momento.")
