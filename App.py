@@ -2,7 +2,9 @@ import streamlit as st
 import requests
 
 st.set_page_config(page_title="Clima en Chihuahua", page_icon="🌤️")
-st.title("Clima en Chihuahua")
+st.title("Clima Actual Chihuahua")
+
+st.sidebar.header("RECOMENDACIÓN DE OUTFIT ")
 
 LATITUD = 28.6353
 LONGITUD = -106.0889
