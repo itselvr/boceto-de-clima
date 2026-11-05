@@ -38,7 +38,7 @@ IMAGENES_OUTFIT = {
     "Calor seco": "",
     "Templado lluvioso": "",
     "Templado": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlYhE_o_INvyVu7Jn9F0gcqg3HnjkG7AXHMo1mFpwbmw&s=10",
-    "Frío": "",
+    "Frío": "https://i.pinimg.com/1200x/24/4a/cb/244acb6a79e2b7f35f2d1f8ff01dd582.jpg",
 }
 
 @st.cache_data(ttl=600)  
@@ -68,7 +68,7 @@ if datos_clima:
     else:
         clasificacion = "Frío"
 
-    #clasificacion = "Templado lluvioso"
+    clasificacion = "Frío"
     estilo_actual = ESTILOS_CLIMA.get(
             clasificacion, 
             {"fondo": "#ffffff", "texto": "#000000", "sidebar_fondo": "#f0f2f6"}
