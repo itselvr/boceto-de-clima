@@ -15,10 +15,6 @@ def obtener_clima(lat, lon):
         return response.json()["current"]
     return None
 
-if st.button("🔄 Actualizar Datos"):
-    st.cache_data.clear()
-    st.rerun()
-
 datos_clima = obtener_clima(LATITUD, LONGITUD)
 
 if datos_clima:
