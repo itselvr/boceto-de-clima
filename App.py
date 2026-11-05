@@ -50,23 +50,7 @@ if datos_clima:
 
     estilo_actual = ESTILOS_CLIMA.get(clasificacion, {"fondo": "#ffffff", "texto": "#000000"})
     color_fondo = COLORES_CLIMA.get(clasificacion, "#ffffff")
-    st.markdown(
-        f"""
-        <style>
-        /* Aplica al fondo general y al texto básico */
-        .stApp {{
-            background-color: {estilo_actual["fondo"]};
-            color: {estilo_actual["texto"]};
-        }}
-        
-        /* Asegura que los títulos y subtítulos también cambien de color */
-        .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6, .stApp p, .stApp span {{
-            color: {estilo_actual["texto"]} !important;
-        }}
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+    
     st.sidebar.header("👕 RECOMENDACIÓN DE OUTFIT")
     
     if clasificacion == "Calor húmedo":
