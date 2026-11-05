@@ -1,8 +1,11 @@
 import streamlit as st
 import requests
 
-st.set_page_config(page_title="Clima en Vivo", page_icon="🌤️")
-st.title("Clima Actual")
+st.set_page_config(page_title="Clima en Chihuahua", page_icon="🌤️")
+st.title("Clima en Chihuahua")
+
+LATITUD = 28.6353
+LONGITUD = -106.0889
 
 @st.cache_data(ttl=600)  
 def obtener_clima(lat, lon):
@@ -12,6 +15,11 @@ def obtener_clima(lat, lon):
         return response.json()["current"]
     return None
 
+if st.button("🔄 Actualizar Datos"):
+    st.cache_data.clear()
+    st.rerun()
+
+datos_clima = obtener_clima(LATITUD, LONGITUD)
 
 if datos_clima:
     temperatura = datos_clima["temperature_2m"]
@@ -30,7 +38,7 @@ if datos_clima:
     else:
         clasificacion = "Frío"
 
-    st.subheader(f"Estado en {ciudad_seleccionada}: {clasificacion}")
+    st.subheader(f"Estado: {clasificacion}")
 
     col1, col2, col3, col4 = st.columns(4)
     with col1:
