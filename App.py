@@ -95,8 +95,6 @@ if datos_clima:
     img_url = IMAGENES_OUTFIT.get(clasificacion, "https://via.placeholder.com/600x400.png?text=Outfit")
     
     st.image(img_url, caption=f"Estilo sugerido para {clasificacion}", use_container_width=True)
-
-    st.markdown("### 🔗 Busca imágenes para reemplazar las URLs:")
     
 else:
     st.error("No se pudieron obtener los datos meteorológicos en este momento.")
