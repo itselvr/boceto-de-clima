@@ -83,6 +83,6 @@ if datos_clima:
     elif alerta_lluvia:
         st.error("⚠️ **ALERTA POR LLUVIA ACTIVADA:** Riesgo por inundaciones.")
     else:
-        st.success("✅ **Alerta por clima:** No \n activa.")
+        st.success("✅ **Alerta por clima:** No activa.")
 else:
     st.error("No se pudieron obtener los datos meteorológicos en este momento.")
