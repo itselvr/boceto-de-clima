@@ -49,16 +49,14 @@ if datos_clima:
         clasificacion = "Frío"
 
     estilo_actual = ESTILOS_CLIMA.get(clasificacion, {"fondo": "#ffffff", "texto": "#000000"})
-        st.markdown(
+
+    st.markdown(
         f"""
         <style>
-        /* Aplica al fondo general y al texto básico */
         .stApp {{
             background-color: {estilo_actual["fondo"]};
             color: {estilo_actual["texto"]};
         }}
-        
-        /* Asegura que los títulos y subtítulos también cambien de color */
         .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6, .stApp p, .stApp span {{
             color: {estilo_actual["texto"]} !important;
         }}
