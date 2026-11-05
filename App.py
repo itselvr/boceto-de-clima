@@ -98,4 +98,7 @@ st.divider()
     
     st.image(img_url, caption=f"Outfit para {clasificacion}", use_column_width=True)
     
-    
+    st.markdown("""
+    Aquí tienes una vista previa del estilo de outfit recomendado para hoy (**{0}**).
+    Haz clic en los enlaces para buscar y seleccionar la foto que más te guste para usar en tu aplicación y personalizar la vista:
+    """.format(clasificacion))
