@@ -7,12 +7,11 @@ st.title("Clima Actual Chihuahua")
 LATITUD = 28.6353
 LONGITUD = -106.0889
 
-# 1. Definimos las URLs de las imágenes arriba para tenerlas organizadas
 IMAGENES_OUTFIT = {
-    "Calor húmedo": "https://img.ltwebstatic.com/images3_pi/2021/04/16/161854898236b285b0d00f68482458e08d648b26_thumbnail_600x.webp",
-    "Calor seco": "https://img.ltwebstatic.com/images3_pi/2022/03/17/164748135847e3881477464a938837e40e2d5392d4_thumbnail_600x.webp",
+    "Calor húmedo": "https://www.google.com/imgres?q=ropa%20para%20calor%20seco&imgurl=https%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D122108196105306221&imgrefurl=https%3A%2F%2Fwww.facebook.com%2Fsecretariadeeducacionyculturacolima%2Fposts%2Fen-temporada-de-calor-tu-ropa-puede-ayudarte-a-mantenerte-fresco-y-seguro-opta-p%2F1106005021570513%2F&docid=40efj4b8Q2a4UM&tbnid=Ljui_sizAAdFcM&vet=12ahUKEwjy0sKj4O-XAxVJlGoFHThJIokQnPAOegUI9AEQAA..i&w=1122&h=1402&hcb=2&ved=2ahUKEwjy0sKj4O-XAxVJlGoFHThJIokQnPAOegUI9AEQAA",
+    "Calor seco": "hhttps://www.google.com/imgres?q=ropa%20para%20calor%20seco&imgurl=https%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D122108196105306221&imgrefurl=https%3A%2F%2Fwww.facebook.com%2Fsecretariadeeducacionyculturacolima%2Fposts%2Fen-temporada-de-calor-tu-ropa-puede-ayudarte-a-mantenerte-fresco-y-seguro-opta-p%2F1106005021570513%2F&docid=40efj4b8Q2a4UM&tbnid=Ljui_sizAAdFcM&vet=12ahUKEwjy0sKj4O-XAxVJlGoFHThJIokQnPAOegUI9AEQAA..i&w=1122&h=1402&hcb=2&ved=2ahUKEwjy0sKj4O-XAxVJlGoFHThJIokQnPAOegUI9AEQAA",
     "Templado lluvioso": "https://img.ltwebstatic.com/images3_pi/2021/01/26/16116238318b76c66601f0548175b9f7a7d42e26b1_thumbnail_600x.webp",
-    "Templado": "https://img.ltwebstatic.com/images3_pi/2021/10/22/1634891157b8b42023d6a2a0242a98e3b2e3e5b158_thumbnail_600x.webp",
+    "Templado": "https://www.google.com/imgres?q=ropa%20para%20calor%20seco&imgurl=https%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D122108196105306221&imgrefurl=https%3A%2F%2Fwww.facebook.com%2Fsecretariadeeducacionyculturacolima%2Fposts%2Fen-temporada-de-calor-tu-ropa-puede-ayudarte-a-mantenerte-fresco-y-seguro-opta-p%2F1106005021570513%2F&docid=40efj4b8Q2a4UM&tbnid=Ljui_sizAAdFcM&vet=12ahUKEwjy0sKj4O-XAxVJlGoFHThJIokQnPAOegUI9AEQAA..i&w=1122&h=1402&hcb=2&ved=2ahUKEwjy0sKj4O-XAxVJlGoFHThJIokQnPAOegUI9AEQAA",
     "Frío": "https://img.ltwebstatic.com/images3_pi/2021/10/20/163471018593d18c11f7c8f2f28a383d47f921d7b1_thumbnail_600x.webp",
 }
 
@@ -32,7 +31,6 @@ if datos_clima:
     llueve = datos_clima["rain"]
     viento = datos_clima["wind_speed_10m"]
 
-    # Clasificación
     if temperatura >= 30 and humedad >= 70:
         clasificacion = "Calor húmedo"
     elif temperatura >= 30 and humedad < 70:
@@ -44,7 +42,6 @@ if datos_clima:
     else:
         clasificacion = "Frío"
 
-    # --- SIDEBAR ---
     st.sidebar.header("👕 RECOMENDACIÓN DE OUTFIT")
     
     if clasificacion == "Calor húmedo":
@@ -59,7 +56,7 @@ if datos_clima:
     elif clasificacion == "Templado":
         outfit = "Camiseta cómoda con una chamarra ligera o suéter delgado fácil de quitar."
         accesorios = "👟 Calzado cómodo de diario."
-    else:  # Frío
+    else:  
         outfit = "Vestimenta en capas: chamarra/abrigo grueso, suéter cálido y pantalones térmicos o gruesos."
         accesorios = "scarf Bufanda, gorro y guantes si sales temprano o de noche."
 
@@ -70,7 +67,6 @@ if datos_clima:
     st.sidebar.info(f"**Vestimenta:**\n{outfit}")
     st.sidebar.warning(f"**Accesorios sugeridos:**\n{accesorios}")
 
-    # --- CONTENIDO PRINCIPAL ---
     st.subheader(f"Estado: {clasificacion}")
 
     col1, col2, col3, col4 = st.columns(4)
@@ -93,22 +89,14 @@ if datos_clima:
     else:
         st.success("✅ **Alerta por clima:** No activa.")
 
-    # --- 2. SECCIÓN DE IMAGEN (Ahora sí dentro de "if datos_clima:") ---
     st.divider()
     st.subheader("📸 Outfit Recomendado")
-    
-    # Obtiene la URL de la imagen basándose en la clasificación actual
+
     img_url = IMAGENES_OUTFIT.get(clasificacion, "https://via.placeholder.com/600x400.png?text=Outfit")
     
-    # Muestra la imagen
     st.image(img_url, caption=f"Estilo sugerido para {clasificacion}", use_container_width=True)
 
-    # --- 3. ENLACES PARA BUSCAR TUS PROPIAS FOTOS ---
     st.markdown("### 🔗 Busca imágenes para reemplazar las URLs:")
-    query_busqueda = clasificacion.replace(' ', '+')
     
-    st.markdown(f"- [🔎 Buscar outfits para **{clasificacion}** en Google](https://www.google.com/search?tbm=isch&q=outfit+{query_busqueda}+moda)")
-    st.markdown(f"- [📌 Buscar outfits para **{clasificacion}** en Pinterest](https://www.pinterest.com/search/pins/?q=outfit+{query_busqueda})")
-
 else:
     st.error("No se pudieron obtener los datos meteorológicos en este momento.")
