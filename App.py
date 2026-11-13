@@ -56,7 +56,7 @@ if datos_clima:
     humedad = datos_clima["relative_humidity_2m"]
     llueve = datos_clima["rain"]
     viento = datos_clima["wind_speed_10m"]
-    uv = datos_clima["uv_index"]
+    uv = datos_clima.get("uv_index", 0.0)
 
     if temperatura >= 30 and humedad >= 70:
         clasificacion = "Calor húmedo"
