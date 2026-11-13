@@ -42,7 +42,7 @@ IMAGENES_OUTFIT = {
 }
 
 @st.cache_data(ttl=600)  
-def obtener_clima(lat, lon):
+def obtener_clima(lat, lon, version=2):
     url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current=temperature_2m,relative_humidity_2m,rain,wind_speed_10m"
     response = requests.get(url)
     if response.status_code == 200:
