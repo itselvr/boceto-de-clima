@@ -56,6 +56,7 @@ if datos_clima:
     humedad = datos_clima["relative_humidity_2m"]
     llueve = datos_clima["rain"]
     viento = datos_clima["wind_speed_10m"]
+    uv = datos_clima["uv_index"]
 
     if temperatura >= 30 and humedad >= 70:
         clasificacion = "Calor húmedo"
@@ -135,6 +136,8 @@ if datos_clima:
         st.metric(label="Viento", value=f"{viento} km/h")
     with col4:
         st.metric(label="Lluvia", value=f"{llueve} mm")
+    with col5:
+        st.metric(label="Rayos UV", value=f"{uv}")
 
     alerta_calor = temperatura >= 35 and humedad >= 70
     alerta_lluvia = llueve >= 10 and humedad >= 70
